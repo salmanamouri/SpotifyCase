@@ -1,0 +1,30 @@
+.track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+  
+.track-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: solid #ddd;
+}
+  
+.track-item img {
+    width: 60px; 
+    height: auto; 
+}
+  
+.track-item div {
+    margin-left: 15px; 
+}
+  
+.track-item h4 {
+    font-size: 16px; 
+}
+  
+.track-item p {
+    margin-top: -5px;
+}
+  
