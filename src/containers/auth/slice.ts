@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { authConfig } from "../../config/auth";
 
 const SPOTIFY_SCOPE = [
   "user-read-email",
@@ -8,7 +9,7 @@ const SPOTIFY_SCOPE = [
   "playlist-modify-public",
 ];
 
-const REDIRECT_URI = window.location.origin;
+const REDIRECT_URI = authConfig.redirectUri;
 
 export interface AuthState {
   accessToken?: string;
@@ -27,10 +28,14 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     login() {
-      const { REACT_APP_SPOTIFY_CLIENT_ID } = process.env;
-      const scopes: string = SPOTIFY_SCOPE.join(",");
+      const params = new URLSearchParams({
+        client_id: authConfig.clientId as string,
+        redirect_uri: REDIRECT_URI,
+        scope: SPOTIFY_SCOPE.join(" "),
+        response_type: 'token'
+      });
 
-      window.location.href = `https://accounts.spotify.com/me/authorize?client_id=${REACT_APP_SPOTIFY_CLIENT_ID}&response_type=token&redirect_uri=${REDIRECT_URI}&scope=${scopes}`;
+      window.location.href = `https://accounts.spotify.com/authorize?${params.toString()}`;
     },
     setAccessToken(state, action: PayloadAction<AccessTokenPayload>) {
       state.accessToken = action.payload.accessToken;

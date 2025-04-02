@@ -7,6 +7,13 @@ import {
   User,
 } from "../types";
 
+interface PlaylistsResponse {
+  items: SpotifyPlaylist[];
+  total: number;
+  limit: number;
+  offset: number;
+}
+
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
@@ -27,7 +34,7 @@ export const apiSlice = createApi({
         method: "GET",
       }),
     }),
-    getPlaylists: builder.query<SpotifyPlaylist, void>({
+    getPlaylists: builder.query<PlaylistsResponse, void>({
       query: () => ({
         url: "/me/playlists",
         method: "GET",

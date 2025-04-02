@@ -1,6 +1,5 @@
 import { useGetPlaylistsQuery } from "../../api/apiSlice";
 import { SpotifyPlaylist } from "../../types";
-import { useDispatch } from "react-redux";
 
 export const PlaylistList = () => {
   const { data, isLoading, error } = useGetPlaylistsQuery();
