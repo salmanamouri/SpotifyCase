@@ -37,14 +37,5 @@
 .search-container button:hover {
   background-color: #1aa34a;
 }
-  
-/*.search-container {
-  margin-bottom: 20px;
-}
-  
-.search-container input[type="text"] {
-  width: calc(100% - 20px);
-  padding: 10px;
-  border-radius: 5px;
-} */
+
   
