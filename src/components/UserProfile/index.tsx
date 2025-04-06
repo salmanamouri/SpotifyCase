@@ -1,5 +1,5 @@
 import { useGetUserQuery  } from "../../api/apiSlice";
-
+import "../UserProfile/UserProfile.css";
 export const UserProfile = () => {
     const { data: user, isLoading } = useGetUserQuery();
 

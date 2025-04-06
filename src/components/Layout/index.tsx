@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { UserProfile } from "../UserProfile";
+import './Layout.css';
 
 interface LayoutProps {
   children: React.ReactNode;

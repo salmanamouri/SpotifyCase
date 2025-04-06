@@ -1,5 +1,6 @@
 import { useGetPlaylistsQuery } from "../../api/apiSlice";
 import { SpotifyPlaylist } from "../../types";
+import "../PlaylistList/PlatlistList.css";
 
 export const PlaylistList = () => {
   const { data, isLoading, error } = useGetPlaylistsQuery();
